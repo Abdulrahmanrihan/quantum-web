@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Checkmark from "../../components/Checkmark";
+import Cards from "../../components/Cards";
 
 // A simple arrow icon for the CTA button, can be in the same file for simplicity
 const ArrowRightIcon = (props) => (
@@ -270,7 +271,7 @@ export default function About() {
                         { color: "#FC432F", title: "Parent Satisfaction", desc: "Align with educational goals" }
                     ].map(({ color, title, desc }) => (
                         <div key={title} className="group flex flex-col  bg-white rounded-xl shadow-lg p-6 w-56 border-b-4 border-[#2A3DFB] transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
-                            <h3 className="text-lg font-bold mb-1 flex flex-row"><Checkmark/>{title}</h3>
+                            <h3 className="text-lg font-bold mb-1 flex flex-row"><Checkmark />{title}</h3>
                             <p className="text-gray-700 text-left leading-relaxed" style={{ fontFamily: "poppins" }}>{desc}</p>
                         </div>
                     ))}
@@ -299,27 +300,63 @@ export default function About() {
                 </div>
             </section>
 
-            {/* 10. Represent Your Institution: Enhanced with card layout */}
-            <section className="pt-12 md:pt-24">
-                <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#2A3DFB] to-[#BD4AD1] bg-clip-text text-transparent">Represent Your Institution</h2>
-                <div className="grid md:grid-cols-3 gap-8">
-                    <div className="group bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
-                        <Image src="/assets/about/creation.png" width={256} height={256} alt="Team Creation" className="mb-4 transition-transform duration-300 group-hover:scale-105" />
-                        <h3 className="text-2xl font-bold">Team Creation</h3>
-                        <p className="text-gray-700 text-md leading-relaxed" style={{ fontFamily: "poppins" }}>Build esports and chess teams</p>
-                    </div>
-                    <div className="group bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
-                        <Image src="/assets/about/coach.png" width={256} height={256} alt="Training" className="mb-4 transition-transform duration-300 group-hover:scale-105" />
-                        <h3 className="text-2xl font-bold">Training</h3>
-                        <p className="text-gray-700 text-md leading-relaxed" style={{ fontFamily: "poppins" }}>Pro coaching for competitions</p>
-                    </div>
-                    <div className="group bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
-                        <Image src="/assets/about/competitions.png" width={256} height={256} alt="Competitions" className="mb-4 transition-transform duration-300 group-hover:scale-105" />
-                        <h3 className="text-2xl font-bold">Competitions</h3>
-                        <p className="text-gray-700 text-md leading-relaxed" style={{ fontFamily: "poppins" }}>National and regional championships</p>
+            <section
+                className="relative py-24 md:py-32 overflow-hidden rounded-2xl p-12"
+                style={{
+                    backgroundImage: `url('/assets/about/banner.jpg'), linear-gradient(135deg, rgba(42, 61, 251, 0.9) 0%, rgba(189, 74, 209, 0.8) 50%, rgba(252, 67, 47, 0.9) 100%)`,
+                    backgroundBlendMode: 'overlay',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                }}
+            >
+                {/* Dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/50"></div>
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-32 items-center">
+
+                        {/* Left side - Bold statement */}
+                        <div className="space-y-6">
+                            <h2
+                                className="text-5xl font-black leading-tight text-white uppercase tracking-wide"
+                                style={{ fontFamily: "var(--font-armstrong), sans-serif" }}
+                            >Transforming passion for gaming into real-world skills
+                            </h2>
+                        </div>
+
+                        {/* Right side - Description */}
+                        <div className="space-y-6">
+                            <p
+                                className="text-lg md:text-xl text-gray-200 leading-relaxed"
+                                style={{ fontFamily: "poppins" }}
+                            >
+                                At Quantum, we believe in the transformative power of
+                                gaming. Our mission is to create opportunities for
+                                students to achieve extraordinary goals while fostering a
+                                culture of innovation, teamwork, and passion for esports
+                                and technology.
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 mt-8">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                                    <span className="text-white font-semibold">Game Development</span>
+                                </div>
+                                <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                                    <span className="text-white font-semibold">Esports Training</span>
+                                </div>
+                                <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                                    <span className="text-white font-semibold">AI & Coding</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
+
+
+            <Cards />
 
             {/* 11. Join the Quantum Movement: CTA Banner with improved button */}
             <section className="relative mt-20 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-r from-[#2A3DFB] via-[#BD4AD1] to-[#FC432F] py-14 px-8">
