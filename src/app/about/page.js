@@ -14,6 +14,7 @@ const ArrowRightIcon = (props) => (
 
 
 export default function About() {
+    
     return (
         // Increased vertical spacing for better rhythm
         <main className="container mx-auto px-4 py-16 md:py-24 space-y-28 md:space-y-36 overflow-x-hidden">
